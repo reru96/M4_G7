@@ -6,7 +6,7 @@ public class CameraOrbit : MonoBehaviour
 {
     public Transform target;               
     public Vector3 offset = new Vector3(0, 2, -5); 
-    public float sensitivity = 3f;
+    public float sensitivity = 10f;
 
     public float minY = -30f;               
     public float maxY = 60f;                
@@ -17,8 +17,8 @@ public class CameraOrbit : MonoBehaviour
     void LateUpdate()
     {
         
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
        
         rotY += mouseX;
